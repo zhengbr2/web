@@ -22,7 +22,7 @@ func ttyBold(code string) string {
 }
 
 func ttyEscape(code string) string {
-	if terminal.IsTerminal(syscall.Stdout) {
+	if terminal.IsTerminal(syscall.STD_OUTPUT_HANDLE) {
 		return "\x1b[" + code + "m"
 	} else {
 		return ""
