@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/hoisie/web"
+
 	"log"
 	"os"
+	"hoise_web"
 )
 
 func hello(val string) string { return "hello " + val + "\n" }

@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/hoisie/web"
+
+	"hoise_web"
 )
 
 var page = `
