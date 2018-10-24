@@ -206,6 +206,7 @@ func SetLogger(logger *log.Logger) {
 var Config = &ServerConfig{
 	RecoverPanic: true,
 	ColorOutput:  true,
+	Profiler:	  true,
 }
 
 var mainServer = NewServer()
