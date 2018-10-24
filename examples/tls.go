@@ -2,7 +2,6 @@ package main
 
 import (
 	"crypto/tls"
-
 )
 
 // an arbitrary self-signed certificate, generated with

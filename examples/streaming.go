@@ -1,11 +1,10 @@
 package main
 
 import (
-
+	"hoise_web"
 	"net/http"
 	"strconv"
 	"time"
-	"hoise_web"
 )
 
 func hello(ctx *web.Context, num string) {
