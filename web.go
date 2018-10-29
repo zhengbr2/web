@@ -9,10 +9,10 @@ import (
 	"mime"
 	"net/http"
 	"os"
-	"path"
+	path "path/filepath"
 	"reflect"
 	"strings"
-)
+	)
 
 // A Context object is created for every incoming HTTP request, and is
 // passed to handlers as an optional first argument. It provides information
@@ -119,13 +119,15 @@ func init() {
 	//find the location of the exe file
 	wd, _ := os.Getwd()
 	arg0 := path.Clean(os.Args[0])
+
 	var exeFile string
-	if strings.HasPrefix(arg0, "/") {
-		exeFile = arg0
-	} else {
-		//TODO for robustness, search each directory in $PATH
-		exeFile = path.Join(wd, arg0)
-	}
+	//if strings.HasPrefix(arg0, "/") {
+	//	exeFile = arg0
+	//} else {
+	//	//TODO for robustness, search each directory in $PATH
+	//	exeFile = path.Join(wd, arg0)
+	//}
+	exeFile = arg0  //just set directly for windows
 	parent, _ := path.Split(exeFile)
 	defaultStaticDirs = append(defaultStaticDirs, path.Join(parent, "static"))
 	defaultStaticDirs = append(defaultStaticDirs, path.Join(wd, "static"))
