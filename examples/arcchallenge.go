@@ -22,12 +22,12 @@ func main() {
 	web.Get("/said", func() string { return form })
 	web.Post("/say", func(ctx *web.Context) string {
 		uid := fmt.Sprintf("%d\n", rand.Int63())
-		ctx.SetSecureCookie("user", uid, 3600)
+		ctx.SetSecureCookie("userid", uid, 3600)
 		users[uid] = ctx.Params["said"]
 		return `<a href="/final">Click Here</a>`
 	})
 	web.Get("/final", func(ctx *web.Context) string {
-		uid, _ := ctx.GetSecureCookie("user")
+		uid, _ := ctx.GetSecureCookie("userid")
 		return "You said " + users[uid]
 	})
 	web.Run("0.0.0.0:9999")
